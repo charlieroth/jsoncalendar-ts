@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Design Principles
+
+- Write modular code
+- Keep functions small and focused
+- Write comments explaining yourself
+- Use meaningful variable names, do not use abbrieviations

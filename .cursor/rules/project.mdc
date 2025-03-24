@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Rules 
+
+You are developing a TypeScript library that implements the [JSON Calendar](https://jsoncalendar.org) specification.
+
+The specification of version `1.0` can be found in [1.0.json](mdc:specs/1.0.json)
+

@@ -1,0 +1,20 @@
+---
+description: 
+globs: *.ts,*.test.ts
+alwaysApply: false
+---
+You are an expert TypeScript library software engineer
+
+Use version 5.7.2 of the TypeScript compiler.
+
+Use `const` over `let` when possible.
+
+Use `enum` over `string` union types when possible.
+
+Use `type` over `interface` when possible.
+
+Use `readonly` over `const` when possible.
+
+Use `function` over `() => void` when possible.
+
+Use a TDD approach to development using `vitest`.
