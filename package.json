@@ -1,14 +1,14 @@
 {
   "name": "jsoncalendar-ts",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "author": "Charlie Roth",
+  "license": "MIT",
+  "description": "A TypeScript library for the JSON Calendar specification",
+  "keywords": ["jsoncalendar"],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "typescript": "^5.8.3",
     "vitest": "^3.1.2"
