@@ -1,0 +1,105 @@
+# Project Guide: `jsoncalendar-ts` Library
+
+## 1. Introduction
+
+This document outlines the development plan for `jsoncalendar-ts`, a TypeScript library designed to load, validate, and interact with calendar data conforming to the JSON Calendar specification (version 1.0, defined in `spec/1.0.json`). The library will provide TypeScript types, classes, and Zod schemas for robust data handling and validation.
+
+## 2. Core Objectives
+
+*   **Schema Conformance:** Strictly adhere to the `spec/1.0.json` schema for all data structures and validation.
+*   **Type Safety:** Provide strong TypeScript typings for all JSON Calendar entities.
+*   **Validation:** Integrate Zod schemas for runtime validation of JSON Calendar data.
+*   **Usability:** Offer a clear and intuitive API for loading, manipulating, and querying calendar data.
+*   **Modularity:** Design components (types, schemas, classes, operations) to be potentially usable independently.
+
+## 3. Key Components
+
+### 3.1. TypeScript Types & Interfaces
+
+Define TypeScript interfaces or types mirroring the structures defined in `spec/1.0.json`.
+
+*   `Duration`
+*   `Recurrence`
+*   `Attendee`
+*   `Notification`
+*   `Location`
+*   `Organizer`
+*   `Event`
+*   `Calendar`
+*   `JsonCalendarDocument` (Root object with `version`, `productIdentifier`, `calendar`)
+
+### 3.2. Zod Schemas
+
+Create Zod schemas corresponding to each TypeScript type/interface defined above. These schemas will directly translate the constraints from `spec/1.0.json` (e.g., `required`, `type`, `enum`, `format`, `minimum`, `pattern`, `oneOf`).
+
+*   `durationSchema`
+*   `recurrenceSchema`
+*   `attendeeSchema`
+*   `notificationSchema`
+*   `locationSchema`
+*   `organizerSchema`
+*   `eventSchema`
+*   `calendarSchema`
+*   `jsonCalendarDocumentSchema`
+
+Use Zod's features for custom validation where necessary (e.g., `format: date-time`, complex `oneOf` logic if needed beyond basic Zod support).
+
+### 3.3. TypeScript Classes (Optional but Recommended)
+
+Consider creating classes that encapsulate the data (using the defined types) and potentially offer methods for common operations or data manipulation.
+
+*   `JsonCalendarEvent` class: Might include methods like `isRecurring()`, `getOccurrences(startDate, endDate)`, `addAttendee()`, `setNotification()`.
+*   `JsonCalendar` class: Might include methods like `addEvent()`, `findEventsByDateRange()`, `getEventsByUid()`, `validate()`.
+
+### 3.4. Loading & Parsing Module
+
+*   A function `loadJsonCalendar(jsonData: unknown): JsonCalendarDocument | Error` that takes raw JSON data (parsed from a string or file), validates it against the `jsonCalendarDocumentSchema`, and returns a typed `JsonCalendarDocument` object or throws/returns a validation error.
+*   Consider async versions for loading from files or URLs.
+
+## 4. Necessary Calendar Operations (Based on Schema)
+
+The library should facilitate operations implied or enabled by the schema structure:
+
+*   **Loading & Validation:**
+    *   Parse and validate a JSON string or object against the `jsonCalendarDocumentSchema`.
+    *   Access top-level properties (`version`, `productIdentifier`, `calendar`).
+*   **Calendar Management:**
+    *   Access calendar metadata (`timezone`, `name`, `description`).
+    *   Access the list of events.
+*   **Event Management:**
+    *   Create, read, update, delete (CRUD) events within the `Calendar.events` array (in memory).
+    *   Access all event properties (`uid`, `summary`, `description`, `location`, `start`, `end`, `created`, `lastModified`, `status`, `transparency`, `url`, `organizer`).
+*   **Recurrence Handling:**
+    *   Parse and interpret `Recurrence` rules (`frequency`, `interval`, `until`, `count`, `byDay`, `byMonthDay`, `weekStart`).
+    *   Handle recurrence exceptions (`exceptionDates`) and additions (`recurrenceAdditions`).
+    *   *(Advanced)* Generate specific occurrences of a recurring event within a given date range.
+*   **Attendee Management:**
+    *   Add, remove, or update attendees for an event.
+    *   Read attendee details (`name`, `email`, `responseStatus`).
+*   **Notification Management:**
+    *   Add, remove, or update notifications for an event.
+    *   Parse notification triggers (absolute `date-time` or relative `Duration`).
+*   **Location Handling:**
+    *   Access structured location data (`name`, `address`, `latitude`, `longitude`, `mapUrl`).
+*   **Serialization:**
+    *   Serialize the in-memory `JsonCalendarDocument` object back into a JSON string conforming to the schema.
+
+## 5. Development Steps
+
+1.  **Setup:** Initialize TypeScript project, install dependencies (`typescript`, `zod`, testing framework like `jest` or `vitest`).
+2.  **Define Types:** Create all necessary TypeScript interfaces/types based on `spec/1.0.json`.
+3.  **Implement Zod Schemas:** Create Zod schemas corresponding to the types, ensuring all constraints from the JSON schema are captured.
+4.  **Implement Loading/Validation:** Develop the `loadJsonCalendar` function using the root Zod schema.
+5.  **Develop Classes (Optional):** Implement classes (`JsonCalendarEvent`, `JsonCalendar`) if desired, incorporating types and potentially validation.
+6.  **Implement Core Operations:** Add methods to classes or create standalone functions for essential operations (finding events, basic manipulation).
+7.  **Implement Recurrence Logic:** Tackle the parsing and generation of recurring event occurrences (this is often the most complex part).
+8.  **Testing:** Write comprehensive unit and integration tests covering type definitions, schema validation, loading, and all implemented operations, especially edge cases in recurrence.
+9.  **Documentation:** Generate API documentation (e.g., using TypeDoc) and update the `README.md` with usage examples.
+10. **Packaging & Publishing:** Configure `package.json` for publishing to npm.
+
+## 6. Considerations
+
+*   **Date/Time Handling:** Use a robust date/time library (like `date-fns` or Day.js) internally to handle ISO 8601 parsing, timezone conversions, and date calculations accurately, especially for recurrence.
+*   **Error Handling:** Provide clear error messages, especially for validation failures, indicating *what* failed and *where*.
+*   **Performance:** Consider performance implications for large calendars or complex recurrence rule calculations.
+*   **Immutability:** Decide on an approach for data manipulation (mutable classes vs. immutable data structures). Immutability is generally preferred in modern JavaScript/TypeScript.
