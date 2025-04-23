@@ -11,7 +11,7 @@
 
 Using zod, implement the following schemas in `src/schemas/`:
 
-- [ ] 2.1 Implement `DurationSchema` in `src/schemas/duration.ts`
+- [x] 2.1 Implement `DurationSchema` in `src/schemas/duration.ts`
 - [ ] 2.2 Implement `RecurrenceSchema` in `src/schemas/recurrence.ts`
 - [ ] 2.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
 - [ ] 2.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
