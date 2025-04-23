@@ -6,26 +6,26 @@
 - [x] 1.3 Verify project builds and tests run (`npm run build`, `npm test`)
 
 ## 2. Define TypeScript Interfaces
-- [ ] 2.1 Create `Duration` interface in `src/types/Duration.ts`
-- [ ] 2.2 Create `Recurrence` interface in `src/types/Recurrence.ts`
-- [ ] 2.3 Create `Attendee` interface in `src/types/Attendee.ts`
-- [ ] 2.4 Create `Notification` interface in `src/types/Notification.ts`
-- [ ] 2.5 Create `Location` interface in `src/types/Location.ts`
-- [ ] 2.6 Create `Organizer` interface in `src/types/Organizer.ts`
-- [ ] 2.7 Create `Event` interface in `src/types/Event.ts`
-- [ ] 2.8 Create `Calendar` interface in `src/types/Calendar.ts`
-- [ ] 2.9 Create `JsonCalendarDocument` interface in `src/types/JsonCalendarDocument.ts`
+- [x] 2.1 Create `Duration` interface in `src/types/duration.ts`
+- [ ] 2.2 Create `Recurrence` interface in `src/types/recurrence.ts`
+- [ ] 2.3 Create `Attendee` interface in `src/types/attendee.ts`
+- [ ] 2.4 Create `Notification` interface in `src/types/notification.ts`
+- [ ] 2.5 Create `Location` interface in `src/types/location.ts`
+- [ ] 2.6 Create `Organizer` interface in `src/types/organizer.ts`
+- [ ] 2.7 Create `event.ts` interface in `src/types/event.ts`
+- [ ] 2.8 Create `calendar.ts` interface in `src/types/calendar.ts`
+- [ ] 2.9 Create `jsonCalendarDocument.ts` interface in `src/types/jsonCalendarDocument.ts`
 
 ## 3. Implement Zod Schemas
-- [ ] 3.1 Implement `durationSchema` in `src/schemas/duration.ts`
-- [ ] 3.2 Implement `recurrenceSchema` in `src/schemas/recurrence.ts`
-- [ ] 3.3 Implement `attendeeSchema` in `src/schemas/attendee.ts`
-- [ ] 3.4 Implement `notificationSchema` in `src/schemas/notification.ts`
-- [ ] 3.5 Implement `locationSchema` in `src/schemas/location.ts`
-- [ ] 3.6 Implement `organizerSchema` in `src/schemas/organizer.ts`
-- [ ] 3.7 Implement `eventSchema` in `src/schemas/event.ts`
-- [ ] 3.8 Implement `calendarSchema` in `src/schemas/calendar.ts`
-- [ ] 3.9 Implement `jsonCalendarDocumentSchema` in `src/schemas/jsonCalendarDocument.ts`
+- [ ] 3.1 Implement `DurationSchema` in `src/schemas/duration.ts`
+- [ ] 3.2 Implement `RecurrenceSchema` in `src/schemas/recurrence.ts`
+- [ ] 3.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
+- [ ] 3.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
+- [ ] 3.5 Implement `LocationSchema` in `src/schemas/location.ts`
+- [ ] 3.6 Implement `OrganizerSchema` in `src/schemas/organizer.ts`
+- [ ] 3.7 Implement `EventSchema` in `src/schemas/event.ts`
+- [ ] 3.8 Implement `CalendarSchema` in `src/schemas/calendar.ts`
+- [ ] 3.9 Implement `JsonCalendarDocumentSchema` in `src/schemas/jsonCalendarDocument.ts`
 - [ ] 3.10 Write tests in `tests/schemas/` to validate each schema against valid and invalid data
 
 ## 4. Load & Parse JSON Calendar
