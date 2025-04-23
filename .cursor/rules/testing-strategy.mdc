@@ -1,0 +1,19 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Testing Strategy
+
+The project uses the official JSON Calendar test cases for validation and compliance:
+
+## Test Specifications
+- [spec/1.0.json](mdc:spec/1.0.json) contains the comprehensive test suite for JSON Calendar 1.0 specification
+- Each test case validates different aspects of the JSON Calendar format including:
+  - Event creation and modification
+  - Date and time handling
+  - Calendar properties
+  - Timezone support
+
+## Running Tests
+Tests can be executed using the npm scripts defined in [package.json](mdc:package.json). The test suite ensures that the TypeScript implementation correctly handles all specification cases.

@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Guide
+
+This guide outlines the development workflow for the JSON Calendar TypeScript implementation.
+
+## Getting Started
+1. The main implementation is in [src/index.ts](mdc:src/index.ts)
+2. TypeScript configuration is managed in [tsconfig.json](mdc:tsconfig.json)
+3. Dependencies and scripts are defined in [package.json](mdc:package.json)
+
+## Implementation Guidelines
+- Follow TypeScript best practices for type safety
+- Ensure compliance with JSON Calendar 1.0 specification
+- Validate changes against test cases in [spec/1.0.json](mdc:spec/1.0.json)
+
+## Building and Testing
+- Use npm scripts defined in [package.json](mdc:package.json) for building and testing
+- Ensure all specification test cases pass before submitting changes

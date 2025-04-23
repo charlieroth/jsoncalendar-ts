@@ -1,10 +1,13 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # Project Guide: `jsoncalendar-ts` Library
 
 ## 1. Introduction
 
-This document outlines the development plan for `jsoncalendar-ts`, a TypeScript library designed to load, validate, and interact with calendar data conforming to the JSON Calendar specification (version 1.0, defined in `spec/1.0.json`). The library will provide TypeScript types, classes, and Zod schemas for robust data handling and validation.
-
-## 2. Core Objectives
+This document outlines the development plan for `jsoncalendar-ts`, a TypeScript library designelidate, and interact with calendar data conforming to the JSON Calendar specification (version 1.`spec/1.0.json`). The library will provide TypeScript types, classes, a for robust data handling and validatioe Objectives
 
 *   **Schema Conformance:** Strictly adhere to the `spec/1.0.json` schema for all data structures and validation.
 *   **Type Safety:** Provide strong TypeScript typings for all JSON Calendar entities.
