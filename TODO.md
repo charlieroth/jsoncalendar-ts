@@ -1,32 +1,40 @@
 # TODO
 
 ## 1. Setup & Installation
+
 - [x] 1.1 Initialize TypeScript project (configure `tsconfig.json`)
 - [x] 1.2 Install dependencies: `typescript`, `zod`, `vitest`
 - [x] 1.3 Verify project builds and tests run (`npm run build`, `npm test`)
 
-## 2. Define TypeScript Interfaces
-- [x] 2.1 Create `Duration` interface in `src/types/duration.ts`
-- [ ] 2.2 Create `Recurrence` interface in `src/types/recurrence.ts`
-- [ ] 2.3 Create `Attendee` interface in `src/types/attendee.ts`
-- [ ] 2.4 Create `Notification` interface in `src/types/notification.ts`
-- [ ] 2.5 Create `Location` interface in `src/types/location.ts`
-- [ ] 2.6 Create `Organizer` interface in `src/types/organizer.ts`
-- [ ] 2.7 Create `event.ts` interface in `src/types/event.ts`
-- [ ] 2.8 Create `calendar.ts` interface in `src/types/calendar.ts`
-- [ ] 2.9 Create `jsonCalendarDocument.ts` interface in `src/types/jsonCalendarDocument.ts`
 
-## 3. Implement Zod Schemas
-- [ ] 3.1 Implement `DurationSchema` in `src/schemas/duration.ts`
-- [ ] 3.2 Implement `RecurrenceSchema` in `src/schemas/recurrence.ts`
-- [ ] 3.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
-- [ ] 3.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
-- [ ] 3.5 Implement `LocationSchema` in `src/schemas/location.ts`
-- [ ] 3.6 Implement `OrganizerSchema` in `src/schemas/organizer.ts`
-- [ ] 3.7 Implement `EventSchema` in `src/schemas/event.ts`
-- [ ] 3.8 Implement `CalendarSchema` in `src/schemas/calendar.ts`
-- [ ] 3.9 Implement `JsonCalendarDocumentSchema` in `src/schemas/jsonCalendarDocument.ts`
-- [ ] 3.10 Write tests in `tests/schemas/` to validate each schema against valid and invalid data
+## 2. Implement Zod Schemas
+
+Using zod, implement the following schemas in `src/schemas/`:
+
+- [ ] 2.1 Implement `DurationSchema` in `src/schemas/duration.ts`
+- [ ] 2.2 Implement `RecurrenceSchema` in `src/schemas/recurrence.ts`
+- [ ] 2.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
+- [ ] 2.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
+- [ ] 2.5 Implement `LocationSchema` in `src/schemas/location.ts`
+- [ ] 2.6 Implement `OrganizerSchema` in `src/schemas/organizer.ts`
+- [ ] 2.7 Implement `EventSchema` in `src/schemas/event.ts`
+- [ ] 2.8 Implement `CalendarSchema` in `src/schemas/calendar.ts`
+- [ ] 2.9 Implement `JsonCalendarDocumentSchema` in `src/schemas/jsonCalendarDocument.ts`
+- [ ] 2.10 Write tests in `tests/schemas/` to validate each schema against valid and invalid data
+
+## 3. Define TypeScript Interfaces
+
+Using the zod schemas, define the following interfaces in `src/types/`:
+
+- [ ] 3.1 Create `Duration` interface in `src/types/duration.ts`
+- [ ] 3.2 Create `Recurrence` interface in `src/types/recurrence.ts`
+- [ ] 3.3 Create `Attendee` interface in `src/types/attendee.ts`
+- [ ] 3.4 Create `Notification` interface in `src/types/notification.ts`
+- [ ] 3.5 Create `Location` interface in `src/types/location.ts`
+- [ ] 3.6 Create `Organizer` interface in `src/types/organizer.ts`
+- [ ] 3.7 Create `event.ts` interface in `src/types/event.ts`
+- [ ] 3.8 Create `calendar.ts` interface in `src/types/calendar.ts`
+- [ ] 3.9 Create `jsonCalendarDocument.ts` interface in `src/types/jsonCalendarDocument.ts`
 
 ## 4. Load & Parse JSON Calendar
 - [ ] 4.1 Add `loadJsonCalendar(jsonData: unknown): JsonCalendarDocument` function in `src/index.ts`
