@@ -5,9 +5,11 @@
   "license": "MIT",
   "description": "A TypeScript library for the JSON Calendar specification",
   "keywords": ["jsoncalendar"],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "build": "tsc"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
