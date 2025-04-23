@@ -1,0 +1,226 @@
+---
+description: 
+globs: *.ts
+alwaysApply: false
+---
+# TypeScript Guide for JSONCalendar-TS
+
+This document provides an overview and usage guide for working with the `jsoncalendar-ts` library in TypeScript. It is designed to help AI systems and developers understand project structure, available types, schemas, APIs, and best practices.
+
+---
+
+## 1. Introduction
+
+**`jsoncalendar-ts`** is a TypeScript library implementing the JSON Calendar specification (version 1.0). It provides:
+
+- **TypeScript Interfaces** for core entities (Event, Calendar, Duration, etc.)
+- **Zod Schemas** for runtime validation
+- **Utility Functions** and **Classes** for common calendar operations
+- **Recurrence Handling** and **Serialization** support
+
+**Dependencies (from `package.json`):**
+
+- `typescript` — for static typing and compilation
+- `zod` — for runtime schema validation
+- `vitest` — for writing and running tests
+
+---
+
+## 2. Setup & Installation
+
+```bash
+# Build (if necessary)
+npm run build
+
+# Run tests
+npm test
+```
+
+Ensure you have Node.js (>=14.x) and npm (>=6.x) installed.
+
+---
+
+## 3. Project Structure
+
+```
+jsoncalendar-ts/
+├── package.json        # dependencies & scripts
+├── tsconfig.json       # TypeScript configuration
+├── src/                # TypeScript source files
+│   ├── index.ts        # Entry point & API exports
+│   ├── types/          # TypeScript interfaces
+│   ├── schemas/        # Zod schemas
+│   └── utils/          # Utility functions (e.g., recurrence, parsing)
+└── tests/              # Vitest unit tests
+```
+
+- **`src/types/`** contains interfaces mirroring `spec/1.0.json`.
+- **`src/schemas/`** contains Zod schemas for each interface.
+- **`src/utils/`** contains parsing, validation, and recurrence logic.
+
+---
+
+## 4. TypeScript Interfaces & Types
+
+All JSON Calendar entities are represented as TypeScript interfaces under `src/types/`:
+
+```ts
+// Duration as per spec
+export interface Duration {
+  years?: number;
+  months?: number;
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+}
+
+export interface Recurrence {
+  frequency: 'SECONDLY' | 'MINUTELY' | 'HOURLY' | 'DAILY' | 'WEEKLY' | 'MONTHLY' | 'YEARLY';
+  interval?: number;
+  until?: string;         // ISO 8601 date-time
+  count?: number;
+  byDay?: string[];       // ['MO', 'TU', ...]
+  byMonthDay?: number[];
+  weekStart?: string;     // e.g., 'MO'
+}
+
+export interface Event {
+  uid: string;
+  summary?: string;
+  description?: string;
+  start: string;          // ISO 8601 date-time
+  end?: string;
+  recurrence?: Recurrence;
+  // ... other fields (organizer, attendees, notifications)
+}
+
+export interface Calendar {
+  name?: string;
+  timezone?: string;
+  events: Event[];
+}
+```
+
+Refer to `src/types/` for full definitions including `Attendee`, `Notification`, `Location`, `Organizer`, etc.
+
+---
+
+## 5. Zod Schemas (Runtime Validation)
+
+Each interface has a corresponding Zod schema in `src/schemas/`:
+
+```ts
+import { z } from 'zod';
+
+export const durationSchema = z.object({
+  years: z.number().int().nonnegative().optional(),
+  months: z.number().int().nonnegative().optional(),
+  days: z.number().int().nonnegative().optional(),
+  hours: z.number().int().nonnegative().optional(),
+  minutes: z.number().int().nonnegative().optional(),
+  seconds: z.number().int().nonnegative().optional(),
+});
+
+export const recurrenceSchema = z.object({
+  frequency: z.enum(['SECONDLY','MINUTELY','HOURLY','DAILY','WEEKLY','MONTHLY','YEARLY']),
+  interval: z.number().int().positive().optional(),
+  until: z.string().datetime().optional(),
+  count: z.number().int().positive().optional(),
+  byDay: z.array(z.string()).optional(),
+  byMonthDay: z.array(z.number().int()).optional(),
+  weekStart: z.string().optional(),
+});
+```
+
+Use `schema.parse(data)` or `schema.safeParse(data)` for validation errors.
+
+---
+
+## 6. Core API & Usage
+
+### 6.1. Loading & Parsing
+
+The `loadJsonCalendar` function validates raw JSON and returns a typed document:
+
+```ts
+import { loadJsonCalendar } from 'jsoncalendar-ts';
+
+const raw = JSON.parse(fs.readFileSync('my-calendar.json', 'utf-8'));
+const doc = loadJsonCalendar(raw);
+
+// doc: { version: '1.0', productIdentifier: 'MyApp', calendar: Calendar }
+```
+
+### 6.2. Working with Events
+
+Add, update, or query events in the `Calendar` object:
+
+```ts
+// Add a new event
+doc.calendar.events.push({
+  uid: 'evt-123',
+  summary: 'Meeting',
+  start: '2024-06-01T09:00:00Z',
+  end: '2024-06-01T10:00:00Z',
+});
+
+// Find events on a specific date
+const juneMeetings = doc.calendar.events.filter(e => e.start.startsWith('2024-06-01'));
+```
+
+### 6.3. Recurrence Handling
+
+Utilities under `src/utils/recurrence.ts` help generate occurrences:
+
+```ts
+import { getOccurrences } from 'jsoncalendar-ts/utils/recurrence';
+
+const occ = getOccurrences(event, '2024-06-01', '2024-06-30');
+```
+
+---
+
+## 7. Testing with Vitest
+
+Write tests under `tests/` using Vitest syntax:
+
+```ts
+import { describe, it, expect } from 'vitest';
+import { durationSchema } from '../src/schemas/duration';
+
+describe('Duration Schema', () => {
+  it('accepts valid durations', () => {
+    const result = durationSchema.safeParse({ days: 2, hours: 5 });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects negative values', () => {
+    const result = durationSchema.safeParse({ days: -1 });
+    expect(result.success).toBe(false);
+  });
+});
+```
+
+Run all tests:
+
+```bash
+npm test
+```
+
+---
+
+## 8. Best Practices
+
+- **Type-First Development:** Define interfaces before implementation.
+- **Immutable Operations:** Prefer copying arrays/objects over mutation.
+- **Clear Error Messages:** Use `safeParse` to handle validation errors gracefully.
+- **Use Date Libraries:** Rely on `date-fns` or similar for complex date arithmetic.
+
+---
+
+## 9. Further Reading
+
+- JSON Calendar Spec: [spec/1.0.json]
+- Zod Documentation: https://zod.dev
+- Vitest Documentation: https://vitest.dev

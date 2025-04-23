@@ -1,19 +1,50 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Testing Strategy
 
-The project uses the official JSON Calendar test cases for validation and compliance:
+The project uses the official JSON Calendar test cases for validation and compliance. Testing is a critical component of ensuring the library correctly implements the JSON Calendar specification.
 
 ## Test Specifications
-- [spec/1.0.json](mdc:spec/1.0.json) contains the comprehensive test suite for JSON Calendar 1.0 specification
-- Each test case validates different aspects of the JSON Calendar format including:
-  - Event creation and modification
-  - Date and time handling
-  - Calendar properties
-  - Timezone support
+
+Coverage:
+  - Type definitions and schema validation
+  - Core calendar operations (CRUD)
+  - Event management and properties
+  - Recurrence rule handling
+  - Date-time formatting and timezone support
+  - Attendee and notification management
+  - Location data handling
+  - Serialization and deserialization
+
+## Testing Areas
+
+### 1. Type System Testing
+- Validate TypeScript interface implementations
+- Ensure type definitions match specification schema
+- Test type safety and compiler constraints
+
+### 2. Schema Validation
+- Test Zod schema validations for all entities
+- Verify constraint handling (required fields, formats, patterns)
+- Test error cases and validation messages
+
+### 3. Core Functionality
+- Test calendar CRUD operations
+- Verify event querying and manipulation
+- Test recurrence calculations and edge cases
+- Validate timezone and date-time handling
+
+### 4. Integration Testing
+- Test the complete workflow from loading to serialization
+- Verify interoperability between components
+- Test against real-world calendar data scenarios
 
 ## Running Tests
-Tests can be executed using the npm scripts defined in [package.json](mdc:package.json). The test suite ensures that the TypeScript implementation correctly handles all specification cases.
+Tests can be executed using the npm scripts defined in [package.json](mdc:package.json). The test suite ensures:
+- Full specification compliance
+- Edge case handling
+- Performance with large calendars
+- Proper error handling and messages

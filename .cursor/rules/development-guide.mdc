@@ -1,22 +1,48 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Development Guide
 
-This guide outlines the development workflow for the JSON Calendar TypeScript implementation.
+This guide outlines the development workflow for the `jsoncalendar-ts` library, which implements the JSON Calendar specification in TypeScript.
 
-## Getting Started
-1. The main implementation is in [src/index.ts](mdc:src/index.ts)
-2. TypeScript configuration is managed in [tsconfig.json](mdc:tsconfig.json)
-3. Dependencies and scripts are defined in [package.json](mdc:package.json)
+## Project Overview
+The library provides TypeScript types, validation schemas, and utilities for working with JSON Calendar data (version 1.0).
 
-## Implementation Guidelines
-- Follow TypeScript best practices for type safety
-- Ensure compliance with JSON Calendar 1.0 specification
-- Validate changes against test cases in [spec/1.0.json](mdc:spec/1.0.json)
+## Key Development Areas
 
-## Building and Testing
-- Use npm scripts defined in [package.json](mdc:package.json) for building and testing
-- Ensure all specification test cases pass before submitting changes
+### 1. Type System
+- Implement TypeScript interfaces for core entities (`Duration`, `Event`, `Calendar`, etc.)
+- Ensure type definitions match [spec/1.0.json](mdc:spec/1.0.json) schema
+- Focus on type safety and proper TypeScript usage
+
+### 2. Validation Layer
+- Create Zod schemas for runtime validation
+- Implement validation for all JSON Calendar entities
+- Handle complex validation rules (date-time formats, patterns, enums)
+
+### 3. Core Implementation
+- Develop in [src/index.ts](mdc:src/index.ts) and related modules
+- Implement calendar operations (CRUD, queries, recurrence)
+- Build utility functions for common calendar operations
+
+### 4. Testing
+- Write tests against [spec/1.0.json](mdc:spec/1.0.json) test cases
+- Cover edge cases, especially in recurrence handling
+- Validate schema conformance
+
+## Development Workflow
+1. Configure your environment using [tsconfig.json](mdc:tsconfig.json)
+2. Install dependencies from [package.json](mdc:package.json)
+3. Implement features following the type-first approach
+4. Add validation using Zod schemas
+5. Test against specification test cases
+6. Document new functionality
+
+## Best Practices
+- Use immutable data structures where possible
+- Implement robust error handling with clear messages
+- Consider performance for large calendars
+- Follow TypeScript best practices
+- Maintain modular, reusable components
