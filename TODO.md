@@ -74,19 +74,19 @@ Using the zod schemas, define the following interfaces in `src/types/`:
   - [x] Edge cases (leap years, month transitions)
 
 ## 8. Attendee & Notification Management
-- [ ] 8.1 Implement attendee utilities in `src/utils/attendeeUtils.ts`:
-  - [ ] `addAttendee(event: Event, attendee: Attendee)`
-  - [ ] `removeAttendee(event: Event, email: string)`
-  - [ ] `updateAttendee(event: Event, attendee: Attendee)`
-- [ ] 8.2 Implement notification utilities in `src/utils/notificationUtils.ts`:
-  - [ ] `addNotification(event: Event, notification: Notification)`
-  - [ ] `removeNotification(event: Event, id: string)`
-  - [ ] `updateNotification(event: Event, notification: Notification)`
-- [ ] 8.3 Write tests in `tests/attendeeUtils.spec.ts` and `tests/notificationUtils.spec.ts`
+- [x] 8.1 Implement attendee utilities in `src/attendee.ts`:
+  - [x] `addAttendee(event: Event, attendee: Attendee)`
+  - [x] `removeAttendee(event: Event, email: string)`
+  - [x] `updateAttendee(event: Event, attendee: Attendee)`
+- [x] 8.2 Implement notification utilities in `src/notification.ts`:
+  - [x] `addNotification(event: Event, notification: Notification)`
+  - [x] `removeNotification(event: Event, id: string)`
+  - [x] `updateNotification(event: Event, notification: Notification)`
+- [x] 8.3 Write tests in `tests/attendee.spec.ts` and `tests/notification.spec.ts`
 
 ## 9. Location Handling
-- [ ] 9.1 Add helper functions in `src/utils/locationUtils.ts`
-- [ ] 9.2 Write tests in `tests/locationUtils.spec.ts` to validate location data handling
+- [x] 9.1 Add helper functions in `src/location.ts`
+- [x] 9.2 Write tests in `tests/location.spec.ts` to validate location data handling
 
 ## 10. Serialization
 - [ ] 10.1 Implement `serializeJsonCalendar(doc: JsonCalendarDocument): string` in `src/index.ts`
