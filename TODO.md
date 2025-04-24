@@ -64,14 +64,14 @@ Using the zod schemas, define the following interfaces in `src/types/`:
 - [x] 6.2 Write tests in `tests/calendarOperations.spec.ts` to cover create/read/update/delete workflows
 
 ## 7. Recurrence Logic
-- [ ] 7.1 Parse and interpret recurrence rules in `src/recurrence.ts`:
-  - [ ] `frequency`, `interval`, `until`, `count`, `byDay`, `byMonthDay`, `weekStart`
-  - [ ] Handle `exceptionDates` and `recurrenceAdditions`
-- [ ] 7.2 Expose `getOccurrences(event: Event, start: string, end: string)` function
-- [ ] 7.3 Write tests in `tests/recurrence.spec.ts` for:
-  - [ ] Single and multiple occurrences
-  - [ ] Exceptions and additions
-  - [ ] Edge cases (leap years, month transitions)
+- [x] 7.1 Parse and interpret recurrence rules in `src/recurrence.ts`:
+  - [x] `frequency`, `interval`, `until`, `count`, `byDay`, `byMonthDay`, `weekStart`
+  - [x] Handle `exceptionDates` and `recurrenceAdditions`
+- [x] 7.2 Expose `getOccurrences(event: Event, start: string, end: string)` function
+- [x] 7.3 Write tests in `tests/recurrence.spec.ts` for:
+  - [x] Single and multiple occurrences
+  - [x] Exceptions and additions
+  - [x] Edge cases (leap years, month transitions)
 
 ## 8. Attendee & Notification Management
 - [ ] 8.1 Implement attendee utilities in `src/utils/attendeeUtils.ts`:

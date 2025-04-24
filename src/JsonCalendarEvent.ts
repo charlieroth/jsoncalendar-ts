@@ -4,6 +4,7 @@ import { Notification } from './types/notification';
 import { EventSchema } from './schemas/event';
 import { AttendeeSchema } from './schemas/attendee';
 import { NotificationSchema } from './schemas/notification';
+import { getOccurrences as getEventOccurrences } from './recurrence';
 
 /**
  * Class representing a JSON Calendar Event with utility methods
@@ -41,36 +42,12 @@ export class JsonCalendarEvent {
   /**
    * Get occurrences of this event in a date range
    * 
-   * Note: This is a placeholder implementation that only returns the original
-   * event if it falls within the specified date range. A complete implementation
-   * would calculate all occurrences based on recurrence rules.
-   * 
    * @param startDate - ISO 8601 date-time string for range start
    * @param endDate - ISO 8601 date-time string for range end
    * @returns Array of event occurrences in the date range
    */
   getOccurrences(startDate: string, endDate: string): Event[] {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    const eventStart = new Date(this._event.start);
-    
-    // For non-recurring events, just check if it's in the range
-    if (!this.isRecurring()) {
-      if (eventStart >= start && eventStart <= end) {
-        return [this.event];
-      }
-      return [];
-    }
-
-    // Basic implementation for recurring events
-    // This is a placeholder - a full implementation would calculate all occurrences
-    // based on the specific recurrence rules (frequency, interval, etc.)
-    if (eventStart >= start && eventStart <= end) {
-      return [this.event];
-    }
-    
-    // TODO: Implement full recurrence calculation logic
-    return [];
+    return getEventOccurrences(this._event, startDate, endDate);
   }
 
   /**
