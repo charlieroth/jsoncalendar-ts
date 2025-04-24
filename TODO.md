@@ -47,12 +47,12 @@ Using the zod schemas, define the following interfaces in `src/types/`:
   - [x] `getOccurrences(startDate: string, endDate: string)`
   - [x] `addAttendee(attendee: Attendee)`
   - [x] `setNotification(notification: Notification)`
-- [ ] 5.2 Create `JsonCalendar` class in `src/utils/JsonCalendar.ts` with methods:
-  - [ ] `addEvent(event: Event)`
-  - [ ] `findEventsByDateRange(start: string, end: string)`
-  - [ ] `getEventsByUid(uid: string)`
-  - [ ] `validate()`
-- [ ] 5.3 Write tests in `tests/utils/` covering all class methods
+- [x] 5.2 Create `JsonCalendar` class in `src/JsonCalendar.ts` with methods:
+  - [x] `addEvent(event: Event)`
+  - [x] `findEventsByDateRange(start: string, end: string)`
+  - [x] `getEventsByUid(uid: string)`
+  - [x] `validate()`
+- [x] 5.3 Write tests in `tests/utils/` covering all class methods
 
 ## 6. Event CRUD Utilities
 - [ ] 6.1 Implement CRUD helpers in `src/calendarOperations.ts`
