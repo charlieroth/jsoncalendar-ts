@@ -42,11 +42,11 @@ Using the zod schemas, define the following interfaces in `src/types/`:
 - [x] 4.3 Write tests in `tests/load.spec.ts` for successful load and failure scenarios
 
 ## 5. Core Operations & Classes
-- [ ] 5.1 Create `JsonCalendarEvent` class in `src/JsonCalendarEvent.ts` with methods:
-  - [ ] `isRecurring()`
-  - [ ] `getOccurrences(startDate: string, endDate: string)`
-  - [ ] `addAttendee(attendee: Attendee)`
-  - [ ] `setNotification(notification: Notification)`
+- [x] 5.1 Create `JsonCalendarEvent` class in `src/JsonCalendarEvent.ts` with methods:
+  - [x] `isRecurring()`
+  - [x] `getOccurrences(startDate: string, endDate: string)`
+  - [x] `addAttendee(attendee: Attendee)`
+  - [x] `setNotification(notification: Notification)`
 - [ ] 5.2 Create `JsonCalendar` class in `src/utils/JsonCalendar.ts` with methods:
   - [ ] `addEvent(event: Event)`
   - [ ] `findEventsByDateRange(start: string, end: string)`

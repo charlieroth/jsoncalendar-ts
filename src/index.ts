@@ -1,6 +1,9 @@
 import { JsonCalendarDocument } from './types/jsonCalendarDocument';
 import { JsonCalendarDocumentSchema } from './schemas/jsonCalendarDocument';
 import { ZodError } from 'zod';
+import { JsonCalendarEvent } from './JsonCalendarEvent';
+
+export { JsonCalendarEvent };
 
 /**
  * Loads and validates a JSON Calendar document
