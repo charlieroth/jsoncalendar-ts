@@ -55,8 +55,13 @@ Using the zod schemas, define the following interfaces in `src/types/`:
 - [x] 5.3 Write tests in `tests/utils/` covering all class methods
 
 ## 6. Event CRUD Utilities
-- [ ] 6.1 Implement CRUD helpers in `src/calendarOperations.ts`
-- [ ] 6.2 Write tests in `tests/calendarOperations.spec.ts` to cover create/read/update/delete workflows
+- [x] 6.1 Implement CRUD helpers in `src/calendarOperations.ts`
+  - [x] 6.1.1 `createEvent(calendar: Calendar, event: Event): Calendar` - Adds event, returns updated calendar.
+  - [x] 6.1.2 `getEventByUid(calendar: Calendar, uid: string): Event | undefined` - Finds event by UID.
+  - [x] 6.1.3 `getAllEvents(calendar: Calendar): Event[]` - Returns all events.
+  - [x] 6.1.4 `updateEvent(calendar: Calendar, updatedEvent: Event): Calendar` - Replaces event by UID, updates `lastModified`, returns updated calendar.
+  - [x] 6.1.5 `deleteEvent(calendar: Calendar, uid: string): Calendar` - Removes event by UID, returns updated calendar.
+- [x] 6.2 Write tests in `tests/calendarOperations.spec.ts` to cover create/read/update/delete workflows
 
 ## 7. Recurrence Logic
 - [ ] 7.1 Parse and interpret recurrence rules in `src/recurrence.ts`:
