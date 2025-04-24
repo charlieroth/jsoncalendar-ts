@@ -89,8 +89,8 @@ Using the zod schemas, define the following interfaces in `src/types/`:
 - [x] 9.2 Write tests in `tests/location.spec.ts` to validate location data handling
 
 ## 10. Serialization
-- [ ] 10.1 Implement `serializeJsonCalendar(doc: JsonCalendarDocument): string` in `src/index.ts`
-- [ ] 10.2 Write tests in `tests/serialization.spec.ts` to ensure serialized output matches schema
+- [x] 10.1 Implement `serializeJsonCalendar(doc: JsonCalendarDocument): string` in `src/index.ts`
+- [x] 10.2 Write tests in `tests/serialization.spec.ts` to ensure serialized output matches schema
 
 ## 11. Documentation & Examples
 - [ ] 11.1 Generate API documentation using TypeDoc

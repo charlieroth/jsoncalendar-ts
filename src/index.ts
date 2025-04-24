@@ -54,3 +54,31 @@ export function safeLoadJsonCalendar(jsonData: unknown):
     return { success: false, error: formattedErrors };
   }
 }
+
+/**
+ * Serializes a JsonCalendarDocument object to a JSON string
+ * 
+ * @param doc - The JsonCalendarDocument to serialize
+ * @returns A JSON string representation of the document
+ */
+export function serializeJsonCalendar(doc: JsonCalendarDocument): string {
+  try {
+    // Validate the document against the schema before serializing
+    // This ensures we don't output invalid JSON Calendar data
+    JsonCalendarDocumentSchema.parse(doc);
+    
+    // Use JSON.stringify with pretty formatting (2 spaces)
+    return JSON.stringify(doc, null, 2);
+  } catch (error) {
+    if (error instanceof ZodError) {
+      // Format Zod validation errors
+      const formattedErrors = error.errors.map(err => 
+        `${err.path.join('.')}: ${err.message}`
+      ).join('\n');
+      
+      throw new Error(`Cannot serialize invalid JSON Calendar document:\n${formattedErrors}`);
+    }
+    // Handle other errors
+    throw new Error(`Serialization error: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
