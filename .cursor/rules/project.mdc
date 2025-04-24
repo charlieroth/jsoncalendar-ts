@@ -7,9 +7,9 @@ alwaysApply: true
 
 ## 1. Introduction
 
-This document outlines the development plan for `jsoncalendar-ts`, a TypeScript library designelidate, and interact with calendar data conforming to the JSON Calendar specification (version 1.`spec/1.0.json`). The library will provide TypeScript types, classes, a for robust data handling and validatioe Objectives
+This document outlines the development plan for `jsoncalendar-ts`, a TypeScript library designelidate, and interact with calendar data conforming to the JSON Calendar specification (the file `1.0.json`). The library will provide TypeScript types, classes, a for robust data handling and validatioe Objectives
 
-*   **Schema Conformance:** Strictly adhere to the `spec/1.0.json` schema for all data structures and validation.
+*   **Schema Conformance:** Strictly adhere to the `1.0.json` schema for all data structures and validation.
 *   **Type Safety:** Provide strong TypeScript typings for all JSON Calendar entities.
 *   **Validation:** Integrate Zod schemas for runtime validation of JSON Calendar data.
 *   **Usability:** Offer a clear and intuitive API for loading, manipulating, and querying calendar data.
@@ -33,7 +33,7 @@ Define TypeScript interfaces or types mirroring the structures defined in `spec/
 
 ### 3.2. Zod Schemas
 
-Create Zod schemas corresponding to each TypeScript type/interface defined above. These schemas will directly translate the constraints from `spec/1.0.json` (e.g., `required`, `type`, `enum`, `format`, `minimum`, `pattern`, `oneOf`).
+Create Zod schemas corresponding to each TypeScript type/interface defined above. These schemas will directly translate the constraints from `1.0.json` (e.g., `required`, `type`, `enum`, `format`, `minimum`, `pattern`, `oneOf`).
 
 *   `durationSchema`
 *   `recurrenceSchema`
@@ -90,7 +90,7 @@ The library should facilitate operations implied or enabled by the schema struct
 ## 5. Development Steps
 
 1.  **Setup:** Initialize TypeScript project, install dependencies (`typescript`, `zod`, testing framework like `jest` or `vitest`).
-2.  **Define Types:** Create all necessary TypeScript interfaces/types based on `spec/1.0.json`.
+2.  **Define Types:** Create all necessary TypeScript interfaces/types based on `1.0.json`.
 3.  **Implement Zod Schemas:** Create Zod schemas corresponding to the types, ensuring all constraints from the JSON schema are captured.
 4.  **Implement Loading/Validation:** Develop the `loadJsonCalendar` function using the root Zod schema.
 5.  **Develop Classes (Optional):** Implement classes (`JsonCalendarEvent`, `JsonCalendar`) if desired, incorporating types and potentially validation.
