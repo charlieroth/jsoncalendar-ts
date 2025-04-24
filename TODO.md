@@ -26,15 +26,15 @@ Using zod, implement the following schemas in `src/schemas/`:
 
 Using the zod schemas, define the following interfaces in `src/types/`:
 
-- [ ] 3.1 Create `Duration` interface in `src/types/duration.ts`
-- [ ] 3.2 Create `Recurrence` interface in `src/types/recurrence.ts`
-- [ ] 3.3 Create `Attendee` interface in `src/types/attendee.ts`
-- [ ] 3.4 Create `Notification` interface in `src/types/notification.ts`
-- [ ] 3.5 Create `Location` interface in `src/types/location.ts`
-- [ ] 3.6 Create `Organizer` interface in `src/types/organizer.ts`
-- [ ] 3.7 Create `event.ts` interface in `src/types/event.ts`
-- [ ] 3.8 Create `calendar.ts` interface in `src/types/calendar.ts`
-- [ ] 3.9 Create `jsonCalendarDocument.ts` interface in `src/types/jsonCalendarDocument.ts`
+- [x] 3.1 Create `Duration` interface in `src/types/duration.ts`
+- [x] 3.2 Create `Recurrence` interface in `src/types/recurrence.ts`
+- [x] 3.3 Create `Attendee` interface in `src/types/attendee.ts`
+- [x] 3.4 Create `Notification` interface in `src/types/notification.ts`
+- [x] 3.5 Create `Location` interface in `src/types/location.ts`
+- [x] 3.6 Create `Organizer` interface in `src/types/organizer.ts`
+- [x] 3.7 Create `event.ts` interface in `src/types/event.ts`
+- [x] 3.8 Create `calendar.ts` interface in `src/types/calendar.ts`
+- [x] 3.9 Create `jsonCalendarDocument.ts` interface in `src/types/jsonCalendarDocument.ts`
 
 ## 4. Load & Parse JSON Calendar
 - [ ] 4.1 Add `loadJsonCalendar(jsonData: unknown): JsonCalendarDocument` function in `src/index.ts`
