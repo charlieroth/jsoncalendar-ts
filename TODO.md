@@ -37,12 +37,12 @@ Using the zod schemas, define the following interfaces in `src/types/`:
 - [x] 3.9 Create `jsonCalendarDocument.ts` interface in `src/types/jsonCalendarDocument.ts`
 
 ## 4. Load & Parse JSON Calendar
-- [ ] 4.1 Add `loadJsonCalendar(jsonData: unknown): JsonCalendarDocument` function in `src/index.ts`
-- [ ] 4.2 Ensure clear error handling for validation failures
-- [ ] 4.3 Write tests in `tests/load.spec.ts` for successful load and failure scenarios
+- [x] 4.1 Add `loadJsonCalendar(jsonData: unknown): JsonCalendarDocument` function in `src/index.ts`
+- [x] 4.2 Ensure clear error handling for validation failures
+- [x] 4.3 Write tests in `tests/load.spec.ts` for successful load and failure scenarios
 
-## 5. Core Operations & Classes (Optional)
-- [ ] 5.1 Create `JsonCalendarEvent` class in `src/utils/JsonCalendarEvent.ts` with methods:
+## 5. Core Operations & Classes
+- [ ] 5.1 Create `JsonCalendarEvent` class in `src/JsonCalendarEvent.ts` with methods:
   - [ ] `isRecurring()`
   - [ ] `getOccurrences(startDate: string, endDate: string)`
   - [ ] `addAttendee(attendee: Attendee)`
@@ -55,11 +55,11 @@ Using the zod schemas, define the following interfaces in `src/types/`:
 - [ ] 5.3 Write tests in `tests/utils/` covering all class methods
 
 ## 6. Event CRUD Utilities
-- [ ] 6.1 Implement CRUD helpers in `src/utils/calendarOperations.ts`
+- [ ] 6.1 Implement CRUD helpers in `src/calendarOperations.ts`
 - [ ] 6.2 Write tests in `tests/calendarOperations.spec.ts` to cover create/read/update/delete workflows
 
 ## 7. Recurrence Logic
-- [ ] 7.1 Parse and interpret recurrence rules in `src/utils/recurrence.ts`:
+- [ ] 7.1 Parse and interpret recurrence rules in `src/recurrence.ts`:
   - [ ] `frequency`, `interval`, `until`, `count`, `byDay`, `byMonthDay`, `weekStart`
   - [ ] Handle `exceptionDates` and `recurrenceAdditions`
 - [ ] 7.2 Expose `getOccurrences(event: Event, start: string, end: string)` function
