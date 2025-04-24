@@ -13,13 +13,13 @@ Using zod, implement the following schemas in `src/schemas/`:
 
 - [x] 2.1 Implement `DurationSchema` in `src/schemas/duration.ts`
 - [x] 2.2 Implement `RecurrenceSchema` in `src/schemas/recurrence.ts`
-- [ ] 2.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
-- [ ] 2.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
-- [ ] 2.5 Implement `LocationSchema` in `src/schemas/location.ts`
-- [ ] 2.6 Implement `OrganizerSchema` in `src/schemas/organizer.ts`
-- [ ] 2.7 Implement `EventSchema` in `src/schemas/event.ts`
-- [ ] 2.8 Implement `CalendarSchema` in `src/schemas/calendar.ts`
-- [ ] 2.9 Implement `JsonCalendarDocumentSchema` in `src/schemas/jsonCalendarDocument.ts`
+- [x] 2.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
+- [x] 2.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
+- [x] 2.5 Implement `LocationSchema` in `src/schemas/location.ts`
+- [x] 2.6 Implement `OrganizerSchema` in `src/schemas/organizer.ts`
+- [x] 2.7 Implement `EventSchema` in `src/schemas/event.ts`
+- [x] 2.8 Implement `CalendarSchema` in `src/schemas/calendar.ts`
+- [x] 2.9 Implement `JsonCalendarDocumentSchema` in `src/schemas/jsonCalendarDocument.ts`
 - [ ] 2.10 Write tests in `tests/schemas/` to validate each schema against valid and invalid data
 
 ## 3. Define TypeScript Interfaces
