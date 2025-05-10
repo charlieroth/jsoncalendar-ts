@@ -2,16 +2,16 @@
 
 ## 1. Setup & Installation
 
-- [ ] 1.1 Initialize TypeScript project (configure `tsconfig.json`)
-- [ ] 1.2 Install dependencies: `typescript`, `zod`, `vitest`
-- [ ] 1.3 Verify project builds and tests run (`npm run build`, `npm test`)
+- [x] 1.1 Initialize TypeScript project (configure `tsconfig.json`)
+- [x] 1.2 Install dependencies: `typescript`, `zod`, `vitest`
+- [x] 1.3 Verify project builds and tests run (`npm run build`, `npm test`)
 
 
 ## 2. Implement Zod Schemas
 
 Using zod, implement the following schemas in `src/schemas/`:
 
-- [ ] 2.1 Implement `DurationSchema` in `src/schemas/duration.ts`
+- [x] 2.1 Implement `DurationSchema` in `src/schemas/duration.ts`
 - [ ] 2.2 Implement `RecurrenceSchema` in `src/schemas/recurrence.ts`
 - [ ] 2.3 Implement `AttendeeSchema` in `src/schemas/attendee.ts`
 - [ ] 2.4 Implement `NotificationSchema` in `src/schemas/notification.ts`
